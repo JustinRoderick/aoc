@@ -15,3 +15,21 @@ def part1():
     return count 
 
 print(part1())
+
+def part2():
+    file = open("input.txt", "r")
+    count = 0
+    for line in file:
+        report = list(map(int, line.strip().split()))
+        if is_safe(report):
+            count += 1
+            continue
+        else:
+            for i in range(len(report)):
+               if(is_safe(report[:i] + report[i+1:])):
+                   count += 1
+                   break
+    
+    return count
+
+print(part2())

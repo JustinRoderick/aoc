@@ -1,9 +1,10 @@
 
 def part1():
     file = open("input.txt", "r")
-    word_search = file.read()
+    word_search = file.read().split("\n")
     row, col = len(word_search), len(word_search[0])
     total_count = 0
+    #print(row, col)
     target = 'XMAS'
     directions = [
         (0,1),
@@ -30,3 +31,5 @@ def part1():
                 if is_valid(r, c, dx, dy):
                     total_count += 1
     return total_count
+
+print(part1())
